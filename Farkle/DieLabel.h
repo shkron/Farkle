@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DieLabelDelegate <NSObject>
+//- (void)dieRolledWithValue:(int)value;
+- (void)isLabelTapped: (BOOL)isTapped;
+
+@end
+
 @interface DieLabel : UILabel
+@property (nonatomic, weak) id <DieLabelDelegate> delegate;
+
+@property BOOL isSelected;
 
 - (void)roll;
 
