@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class DieLabel; //if you know the class exists, just add it at the beginning
+
 @protocol DieLabelDelegate <NSObject>
-//- (void)dieRolledWithValue:(int)value;
-- (void)isLabelTapped: (BOOL)isTapped;
+
+- (void)selectDieLabel:(DieLabel*)label;
+
 
 @end
 
@@ -19,6 +22,9 @@
 
 @property BOOL isSelected;
 
+
 - (void)roll;
+//- (void)isLabelTapped: (BOOL)isTapped;
+
 
 @end

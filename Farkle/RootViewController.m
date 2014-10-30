@@ -13,6 +13,9 @@
 @property IBOutletCollection(DieLabel) NSArray *allDieLabels;
 @property NSMutableArray *dice;
 
+@property NSMutableArray *allDieLabelsCopy;
+
+
 @end
 
 @implementation RootViewController
@@ -24,49 +27,71 @@
     {
         label.delegate = self; //setting the VC as the delegate of label
     }
+    self.dice = [@[]mutableCopy];
+    [self resetGame];
+}
 
+-(void)selectDieLabel:(DieLabel *)label
+{
+    if (![label.text isEqualToString:@"*"])
+    {
+        [self.dice addObject:label];
+        label.backgroundColor = [UIColor redColor];
+    }
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)sender
 {
 //    for (int i = 0; i < self.allDieLabels.count; i++ )
+    [self checkSelectedDice];
+
+    //if dice is empty, roll all of them
+    if (self.allDieLabelsCopy.count == 6)
+    {
+        for (DieLabel *label in self.allDieLabels)
+        {
+            [label roll];
+        }
+    }
+
+    else if (self.allDieLabelsCopy.count == 0)
+    {
+        for (DieLabel *label in self.allDieLabels)
+        {
+            [label roll];
+            //STOP THE GAME HERE
+        }
+    }
+
+    else
+    {
+        for (DieLabel *label in self.allDieLabelsCopy)
+        {
+            [label roll];
+        }
+    }
+
+}
+
+- (void)checkSelectedDice
+{
+    for (DieLabel *label in self.dice)
+    {
+        [self.allDieLabelsCopy removeObject:label]; //remove chosen die from the copy array
+    }
+
+}
+
+
+-(void) resetGame
+{
     for (DieLabel *label in self.allDieLabels)
     {
-        [label roll];
+        label.text = @"*";
+        label.backgroundColor = [UIColor blueColor];
+        self.allDieLabelsCopy = [NSMutableArray arrayWithArray:self.allDieLabels];
     }
 }
-
-#pragma mark Die Label TAP Handlers
-- (IBAction)onDieLabelOnePressed:(UITapGestureRecognizer *)sender
-{
-    //need to call delegate method
-}
-
-- (IBAction)onDieLabelTwoPressed:(UITapGestureRecognizer *)sender
-{
-
-}
-
-- (IBAction)onDieLabelThreePressed:(UITapGestureRecognizer *)sender
-{
-
-}
-- (IBAction)onDieLabelFourPressed:(UITapGestureRecognizer *)sender
-{
-
-}
-- (IBAction)onDieLabelFivePressed:(UITapGestureRecognizer *)sender
-{
-
-}
-- (IBAction)onDieLabelSixPressed:(UITapGestureRecognizer *)sender
-{
-
-}
-
-
-
-
 
 
 
