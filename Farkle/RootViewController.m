@@ -16,6 +16,7 @@
 @property NSMutableArray *allDieLabelsCopy;
 @property NSMutableArray *allDieForScore;
 @property int userScore;
+@property int userScore2;
 @property int bankScore;
 @property NSDictionary *winningThrees;
 @property BOOL isPlayerOne;
@@ -41,7 +42,9 @@
     self.allDieForScore = [@[]mutableCopy];
 
     [self resetGame];
-
+    self.userScoreLabel.backgroundColor = [UIColor greenColor];
+    self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
+    self.isPlayerOne = YES;
 
     self.winningThrees = @{@"1": @100,
                            @"5": @50,
@@ -168,9 +171,6 @@
 
 -(void) resetGame
 {
-    self.userScoreLabel.backgroundColor = [UIColor greenColor];
-    self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
-    self.isPlayerOne = YES;
 
     for (DieLabel *label in self.allDieLabels)
     {
@@ -178,16 +178,30 @@
         label.backgroundColor = [UIColor blueColor];
         self.allDieLabelsCopy = [NSMutableArray arrayWithArray:self.allDieLabels];
     }
+    self.allDieForScore = [@[]mutableCopy];
+//    self.bankScore = 0;
 }
 
 - (IBAction)onBankScoreButtonPressed:(UIButton *)sender
 {
 //    [self checkForScore:self.allDieForScore];
 
+
+    if (self.isPlayerOne)
+    {
     self.userScore = self.userScore + self.bankScore;
     self.userScoreLabel.text = [NSString stringWithFormat:@"%d",self.userScore];
     self.bankScore = 0;
     self.bankScoreLabel.text = @"";
+    }
+
+    else
+    {
+        self.userScore2 = self.userScore2 + self.bankScore;
+        self.userScoreLabel2.text = [NSString stringWithFormat:@"%d",self.userScore2];
+        self.bankScore = 0;
+        self.bankScoreLabel.text = @"";
+    }
 
 }
 
@@ -195,12 +209,18 @@
 {
     self.isPlayerOne = !self.isPlayerOne;
     [self resetGame];
+
     if (self.isPlayerOne == NO)
     {
         self.userScoreLabel2.backgroundColor = [UIColor greenColor];
         self.userScoreLabel.backgroundColor = [UIColor whiteColor];
     }
 
+    else
+    {
+        self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
+        self.userScoreLabel.backgroundColor = [UIColor greenColor];
+    }
 }
 
 
