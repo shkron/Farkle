@@ -10,7 +10,7 @@
 #import "DieLabel.h"
 
 @interface RootViewController () <DieLabelDelegate>
-@property IBOutletCollection(DieLabel) NSArray *allDieLabels;
+@property IBOutletCollection(DieLabel) NSMutableArray *allDieLabels;
 @property NSMutableArray *dice;
 
 @property NSMutableArray *allDieLabelsCopy;
@@ -20,6 +20,7 @@
 @property int bankScore;
 @property NSDictionary *winningNumbers;
 @property BOOL isPlayerOne;
+@property int tempScore;
 
 @property (weak, nonatomic) IBOutlet UILabel *userScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankScoreLabel;
@@ -97,7 +98,7 @@
 
 
 //adding all the selected dice into the ones that will be calculated for score
--(void)selectDieLabel:(DieLabel *)label
+-(void)dieLabelTapped:(DieLabel *)label
 {
     if (![label.text isEqualToString:@"*"])
     {
@@ -142,7 +143,7 @@
     NSMutableString *fives = [[NSMutableString alloc]init];
     NSMutableString *sixes = [[NSMutableString alloc]init];
     NSMutableString *all = [[NSMutableString alloc]init];
-    NSMutableArray *array = [@[ones, twos, threes, fours, fives, sixes] mutableCopy];
+    NSMutableArray *sortedNumberStringsArray = [@[ones, twos, threes, fours, fives, sixes] mutableCopy];
 
     for (DieLabel *label in labelsArray)
     {
@@ -202,7 +203,7 @@
 
     }
 
-    for (NSString *string in array)
+    for (NSString *string in sortedNumberStringsArray)
     {
         self.bankScore = self.bankScore + [[self.winningNumbers valueForKey:string] intValue];
         NSLog(@"the key is %@", string );
@@ -220,8 +221,11 @@
         label.text = @"*";
         label.backgroundColor = [UIColor blueColor];
         self.allDieLabelsCopy = [NSMutableArray arrayWithArray:self.allDieLabels];
+
     }
     self.allDieForScore = [@[]mutableCopy];
+    self.dice = [@[]mutableCopy];
+    self.bankScoreLabel.text = @"";
 //    self.bankScore = 0;
 }
 
@@ -248,6 +252,20 @@
 
     self.allDieForScore =[@[]mutableCopy];
     self.bankScoreLabel.text = @"";
+
+    [self checkForScore:self.allDieLabels];
+    self.bankScoreLabel.text = @"";
+    if (self.bankScore == 0)
+    {
+        UIAlertController *farkle = [UIAlertController alertControllerWithTitle:@"FFFFFARKLE" message:@"You farkled!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *next = [UIAlertAction actionWithTitle:@"Next player" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            [self endTurn];
+        }];
+        [farkle addAction:next];
+        [self presentViewController:farkle animated:YES completion:nil];
+    }
+
+
     
     
 }
@@ -264,6 +282,7 @@
     self.userScoreLabel.text = [NSString stringWithFormat:@"%d",self.userScore];
     self.bankScore = 0;
     self.bankScoreLabel.text = @"";
+
     }
 
     else
@@ -277,6 +296,12 @@
 }
 
 - (IBAction)onEndTurnButtonPressed:(UIButton *)sender
+{
+    [self endTurn];
+}
+
+
+- (void)endTurn
 {
     self.isPlayerOne = !self.isPlayerOne;
     [self resetGame];
@@ -292,8 +317,8 @@
         self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
         self.userScoreLabel.backgroundColor = [UIColor greenColor];
     }
-}
 
+}
 
 
 

@@ -12,7 +12,7 @@
 
 @protocol DieLabelDelegate <NSObject>
 
-- (void)selectDieLabel:(DieLabel*)label;
+- (void)dieLabelTapped:(DieLabel*)label;
 
 @end
 
