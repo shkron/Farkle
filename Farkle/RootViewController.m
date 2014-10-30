@@ -15,12 +15,14 @@
 
 @property NSMutableArray *allDieLabelsCopy;
 @property NSMutableArray *allDieForScore;
-@property int finalScore;
-@property int boardScore;
+@property int userScore;
+@property int bankScore;
 @property NSDictionary *winningThrees;
+@property BOOL isPlayerOne;
 
 @property (weak, nonatomic) IBOutlet UILabel *userScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *bankScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userScoreLabel2;
 
 
 @end
@@ -59,6 +61,8 @@
         [self.allDieForScore addObject:label];
 //        [self.dice addObject:label];
         label.backgroundColor = [UIColor redColor];
+        [self checkForScore:self.allDieForScore];
+
     }
 
 }
@@ -88,7 +92,7 @@
 
 - (void)checkForScore: (NSMutableArray *)labelsArray
 {
-    self.boardScore = 0;
+    self.bankScore = 0;
 
     NSMutableString *ones = [[NSMutableString alloc]init];
     NSMutableString *twos = [[NSMutableString alloc]init];
@@ -145,10 +149,10 @@
 
     for (NSString *string in array)
     {
-        self.boardScore = self.boardScore + [[self.winningThrees valueForKey:string] intValue];
+        self.bankScore = self.bankScore + [[self.winningThrees valueForKey:string] intValue];
     }
 
-    self.bankScoreLabel.text = [NSString stringWithFormat:@"%d",self.boardScore];
+    self.bankScoreLabel.text = [NSString stringWithFormat:@"%d",self.bankScore];
 
 //    self.allDieForScore =[@[]mutableCopy];
 
@@ -164,6 +168,10 @@
 
 -(void) resetGame
 {
+    self.userScoreLabel.backgroundColor = [UIColor greenColor];
+    self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
+    self.isPlayerOne = YES;
+
     for (DieLabel *label in self.allDieLabels)
     {
         label.text = @"*";
@@ -174,15 +182,26 @@
 
 - (IBAction)onBankScoreButtonPressed:(UIButton *)sender
 {
-    [self checkForScore:self.allDieForScore];
+//    [self checkForScore:self.allDieForScore];
 
-    self.finalScore = self.finalScore + self.boardScore;
-    self.userScoreLabel.text = [NSString stringWithFormat:@"%d",self.finalScore];
-
-
+    self.userScore = self.userScore + self.bankScore;
+    self.userScoreLabel.text = [NSString stringWithFormat:@"%d",self.userScore];
+    self.bankScore = 0;
+    self.bankScoreLabel.text = @"";
 
 }
 
+- (IBAction)onEndTurnButtonPressed:(UIButton *)sender
+{
+    self.isPlayerOne = !self.isPlayerOne;
+    [self resetGame];
+    if (self.isPlayerOne == NO)
+    {
+        self.userScoreLabel2.backgroundColor = [UIColor greenColor];
+        self.userScoreLabel.backgroundColor = [UIColor whiteColor];
+    }
+
+}
 
 
 
