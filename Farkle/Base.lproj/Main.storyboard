@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -16,10 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-fl-rKM" customClass="DieLabel">
-                                <rect key="frame" x="40" y="105" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMI-fl-rKM" customClass="DieLabel">
+                                <rect key="frame" x="34" y="105" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081399917603" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="daJ-Ov-uge"/>
+                                    <constraint firstAttribute="width" constant="75" id="mQ8-hx-e9g"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -27,10 +32,14 @@
                                     <outletCollection property="gestureRecognizers" destination="cpc-Sc-fuh" appends="YES" id="KP2-7s-lqr"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-BW-oGx" customClass="DieLabel">
-                                <rect key="frame" x="108" y="105" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-BW-oGx" customClass="DieLabel">
+                                <rect key="frame" x="123" y="105" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="3KH-Qe-8lt"/>
+                                    <constraint firstAttribute="width" constant="75" id="lKM-q5-9xc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -38,10 +47,14 @@
                                     <outletCollection property="gestureRecognizers" destination="Ed3-M6-j1u" appends="YES" id="esp-Fa-oCr"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GA-Kg-Who" customClass="DieLabel">
-                                <rect key="frame" x="179" y="105" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GA-Kg-Who" customClass="DieLabel">
+                                <rect key="frame" x="212" y="105" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="5f2-AR-9e6"/>
+                                    <constraint firstAttribute="width" constant="75" id="c5E-V4-iKE"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,10 +62,14 @@
                                     <outletCollection property="gestureRecognizers" destination="Cih-rm-XG2" appends="YES" id="Vhv-5l-WqM"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M9-6x-ekv" customClass="DieLabel">
-                                <rect key="frame" x="40" y="176" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M9-6x-ekv" customClass="DieLabel">
+                                <rect key="frame" x="34" y="193" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Uie-Ji-BbA"/>
+                                    <constraint firstAttribute="width" constant="75" id="s7G-0i-y7f"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -60,10 +77,14 @@
                                     <outletCollection property="gestureRecognizers" destination="4kQ-Aw-RFr" appends="YES" id="wWO-XN-kJI"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-45-gdu" customClass="DieLabel">
-                                <rect key="frame" x="108" y="176" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNs-45-gdu" customClass="DieLabel">
+                                <rect key="frame" x="123" y="193" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="szu-7r-VoD"/>
+                                    <constraint firstAttribute="width" constant="75" id="wrX-t7-MMt"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -71,10 +92,14 @@
                                     <outletCollection property="gestureRecognizers" destination="bLV-oX-Svq" appends="YES" id="MgU-nh-WCA"/>
                                 </connections>
                             </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKY-6w-z7p" customClass="DieLabel">
-                                <rect key="frame" x="179" y="176" width="50" height="50"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zKY-6w-z7p" customClass="DieLabel">
+                                <rect key="frame" x="212" y="193" width="75" height="75"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="fcH-tj-NTB"/>
+                                    <constraint firstAttribute="height" constant="75" id="kjU-aL-yHW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="37"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -82,23 +107,27 @@
                                     <outletCollection property="gestureRecognizers" destination="vOf-Ra-eOX" appends="YES" id="ygb-SF-lvw"/>
                                 </connections>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEg-JF-B7z">
-                                <rect key="frame" x="130" y="322" width="30" height="30"/>
-                                <state key="normal" title="Roll">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEg-JF-B7z">
+                                <rect key="frame" x="237" y="326" width="50" height="50"/>
+                                <state key="normal" image="dice-50">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onRollButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="025-sf-WeI"/>
+                                    <action selector="onRollButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LfV-Ui-Yor"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJz-ZX-40Z">
-                                <rect key="frame" x="40" y="43" width="45" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJz-ZX-40Z">
+                                <rect key="frame" x="108" y="50" width="45" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="KFZ-F9-OC3"/>
+                                    <constraint firstAttribute="height" constant="21" id="N8S-Bw-COJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcb-Pn-kpm">
-                                <rect key="frame" x="105" y="355" width="80" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcb-Pn-kpm">
+                                <rect key="frame" x="34" y="326" width="80" height="30"/>
                                 <state key="normal" title="Bank Score">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -106,38 +135,81 @@
                                     <action selector="onBankScoreButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gyM-sV-8ti"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-H6-iPb">
-                                <rect key="frame" x="125" y="530" width="70" height="30"/>
-                                <state key="normal" title="Start Over">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onStartOverButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="q9Z-79-L5r"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubW-93-cIS">
-                                <rect key="frame" x="40" y="234" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubW-93-cIS">
+                                <rect key="frame" x="34" y="299" width="80" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Ai9-4J-MSa"/>
+                                    <constraint firstAttribute="width" constant="80" id="Sh6-7g-eHJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="31"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xh-ys-W2h">
-                                <rect key="frame" x="209" y="42" width="60" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xh-ys-W2h">
+                                <rect key="frame" x="172" y="50" width="60" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="CEm-ic-nhx"/>
+                                    <constraint firstAttribute="height" constant="21" id="zPH-Ws-lCW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpd-ta-ODh">
-                                <rect key="frame" x="116" y="401" width="59" height="30"/>
-                                <state key="normal" title="End turn">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hpd-ta-ODh">
+                                <rect key="frame" x="208" y="403" width="109" height="40"/>
+                                <state key="normal" image="change_user-50">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onEndTurnButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kTf-oy-UNg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-H6-iPb">
+                                <rect key="frame" x="243" y="478" width="44" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="hLM-Mz-7sm"/>
+                                    <constraint firstAttribute="height" constant="45" id="wYj-mV-C3O"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="reload-50">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStartOverButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p0K-K5-oNw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zKY-6w-z7p" firstAttribute="top" secondItem="6GA-Kg-Who" secondAttribute="bottom" constant="13" id="00l-Wi-oTz"/>
+                            <constraint firstItem="Hpd-ta-ODh" firstAttribute="top" secondItem="BEg-JF-B7z" secondAttribute="bottom" constant="27" id="07x-8T-KFA"/>
+                            <constraint firstItem="ySC-H6-iPb" firstAttribute="top" secondItem="Hpd-ta-ODh" secondAttribute="bottom" constant="35" id="2sV-kc-9mf"/>
+                            <constraint firstItem="CNs-45-gdu" firstAttribute="top" secondItem="bVW-BW-oGx" secondAttribute="bottom" constant="13" id="3D1-8F-QMm"/>
+                            <constraint firstItem="6GA-Kg-Who" firstAttribute="top" secondItem="5xh-ys-W2h" secondAttribute="bottom" constant="34" id="5Gh-xU-bPr"/>
+                            <constraint firstItem="zKY-6w-z7p" firstAttribute="leading" secondItem="CNs-45-gdu" secondAttribute="trailing" constant="14" id="6IQ-wo-rih"/>
+                            <constraint firstAttribute="centerX" secondItem="CNs-45-gdu" secondAttribute="centerX" id="AW9-Sf-w1k"/>
+                            <constraint firstItem="6GA-Kg-Who" firstAttribute="top" secondItem="5xh-ys-W2h" secondAttribute="bottom" constant="34" id="AjT-VC-M9H"/>
+                            <constraint firstAttribute="centerX" secondItem="ubW-93-cIS" secondAttribute="centerX" constant="86" id="AtP-Dq-UlG"/>
+                            <constraint firstItem="qMI-fl-rKM" firstAttribute="top" secondItem="vJz-ZX-40Z" secondAttribute="bottom" constant="34" id="Bjn-hT-kmh"/>
+                            <constraint firstItem="BEg-JF-B7z" firstAttribute="top" secondItem="ubW-93-cIS" secondAttribute="top" constant="27" id="DQM-ou-Xoa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hpd-ta-ODh" secondAttribute="trailing" constant="-13" id="FFw-VL-ig7"/>
+                            <constraint firstItem="bVW-BW-oGx" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="85" id="HuD-CW-F4k"/>
+                            <constraint firstItem="Hpd-ta-ODh" firstAttribute="centerX" secondItem="BEg-JF-B7z" secondAttribute="centerX" id="M5l-Z5-lhA"/>
+                            <constraint firstAttribute="centerX" secondItem="bVW-BW-oGx" secondAttribute="centerX" id="R5w-7p-pbH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5xh-ys-W2h" secondAttribute="trailing" constant="72" id="Rhq-Lc-JTG"/>
+                            <constraint firstItem="ySC-H6-iPb" firstAttribute="trailing" secondItem="BEg-JF-B7z" secondAttribute="trailing" id="S7n-AV-gmI"/>
+                            <constraint firstItem="CNs-45-gdu" firstAttribute="leading" secondItem="0M9-6x-ekv" secondAttribute="trailing" constant="14" id="VEu-23-wkw"/>
+                            <constraint firstItem="Qcb-Pn-kpm" firstAttribute="top" secondItem="ubW-93-cIS" secondAttribute="bottom" constant="2" id="X1m-y0-uUK"/>
+                            <constraint firstItem="0M9-6x-ekv" firstAttribute="top" secondItem="qMI-fl-rKM" secondAttribute="bottom" constant="13" id="YcX-5y-Rhn"/>
+                            <constraint firstItem="vJz-ZX-40Z" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="YtV-Zk-lO7"/>
+                            <constraint firstItem="vJz-ZX-40Z" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="92" id="fK6-WT-RJ2"/>
+                            <constraint firstItem="qMI-fl-rKM" firstAttribute="top" secondItem="vJz-ZX-40Z" secondAttribute="bottom" constant="34" id="jCI-mn-ffy"/>
+                            <constraint firstItem="5xh-ys-W2h" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="oci-yz-t7v"/>
+                            <constraint firstItem="bVW-BW-oGx" firstAttribute="leading" secondItem="qMI-fl-rKM" secondAttribute="trailing" constant="14" id="qT6-Zj-N8K"/>
+                            <constraint firstItem="ubW-93-cIS" firstAttribute="top" secondItem="CNs-45-gdu" secondAttribute="bottom" constant="31" id="vdJ-cD-k5P"/>
+                            <constraint firstItem="Qcb-Pn-kpm" firstAttribute="leading" secondItem="ubW-93-cIS" secondAttribute="leading" id="wkW-eU-rNl"/>
+                            <constraint firstItem="BEg-JF-B7z" firstAttribute="trailing" secondItem="zKY-6w-z7p" secondAttribute="trailing" id="yDv-Ui-ELM"/>
+                            <constraint firstItem="6GA-Kg-Who" firstAttribute="leading" secondItem="bVW-BW-oGx" secondAttribute="trailing" constant="14" id="zIE-Vc-myR"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bankScoreLabel" destination="ubW-93-cIS" id="X37-ZK-Ahf"/>
@@ -186,6 +258,11 @@
             <point key="canvasLocation" x="162" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="change_user-50" width="40" height="40"/>
+        <image name="dice-50" width="50" height="50"/>
+        <image name="reload-50" width="50" height="50"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

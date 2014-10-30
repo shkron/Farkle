@@ -30,6 +30,8 @@
 
 @implementation RootViewController
 
+#pragma mark View Controller Life Cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -91,12 +93,15 @@
 
 }
 
+#pragma mark Dice
+
+
+//adding all the selected dice into the ones that will be calculated for score
 -(void)selectDieLabel:(DieLabel *)label
 {
     if (![label.text isEqualToString:@"*"])
     {
         [self.allDieForScore addObject:label];
-//        [self.dice addObject:label];
         label.backgroundColor = [UIColor redColor];
         [self checkForScore:self.allDieForScore];
 
@@ -104,28 +109,27 @@
 
 }
 
-- (IBAction)onRollButtonPressed:(UIButton *)sender
-{
-
-    [self.dice addObjectsFromArray:self.allDieForScore];
-    [self checkSelectedDice];
-    [self rollAllDice];
-    [self checkForScore:self.allDieForScore];
-
-    self.allDieForScore =[@[]mutableCopy];
-    self.bankScoreLabel.text = @"";
-
-
-}
-
+//remove chosen die from the copy array
 - (void)checkSelectedDice
 {
     for (DieLabel *label in self.dice)
     {
-        [self.allDieLabelsCopy removeObject:label]; //remove chosen die from the copy array
+        [self.allDieLabelsCopy removeObject:label];
     }
 
 }
+
+//allDieLabelsCopy only the unselected Dice
+- (void)rollAllDice
+{
+    for (DieLabel *label in self.allDieLabelsCopy)
+    {
+        [label roll];
+    }
+}
+
+
+#pragma mark Score checking
 
 - (void)checkForScore: (NSMutableArray *)labelsArray
 {
@@ -206,22 +210,11 @@
 
     self.bankScoreLabel.text = [NSString stringWithFormat:@"%d",self.bankScore];
 
-
-//    self.allDieForScore =[@[]mutableCopy];
-
 }
 
-- (void)rollAllDice
-{
-    for (DieLabel *label in self.allDieLabelsCopy)
-    {
-        [label roll];
-    }
-}
 
--(void) resetGame
+- (void) resetGame
 {
-
     for (DieLabel *label in self.allDieLabels)
     {
         label.text = @"*";
@@ -231,6 +224,34 @@
     self.allDieForScore = [@[]mutableCopy];
 //    self.bankScore = 0;
 }
+
+
+#pragma mark Button Presses
+
+- (IBAction)onStartOverButtonPressed:(id)sender
+{
+    [self resetGame];
+    self.userScore = 0;
+    self.userScore2 = 0;
+    self.userScoreLabel.text = @"Score";
+    self.userScoreLabel2.text = @"Score2";
+
+}
+
+- (IBAction)onRollButtonPressed:(UIButton *)sender
+{
+
+    [self.dice addObjectsFromArray:self.allDieForScore];
+    [self checkSelectedDice];
+    [self rollAllDice];
+    [self checkForScore:self.allDieForScore];
+
+    self.allDieForScore =[@[]mutableCopy];
+    self.bankScoreLabel.text = @"";
+    
+    
+}
+
 
 - (IBAction)onBankScoreButtonPressed:(UIButton *)sender
 {
@@ -272,19 +293,6 @@
         self.userScoreLabel.backgroundColor = [UIColor greenColor];
     }
 }
-
-
-- (IBAction)onStartOverButtonPressed:(id)sender
-{
-    [self resetGame];
-    self.userScore = 0;
-    self.userScore2 = 0;
-    self.userScoreLabel.text = @"Score";
-    self.userScoreLabel2.text = @"Score2";
-
-}
-
-
 
 
 
