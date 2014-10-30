@@ -18,7 +18,7 @@
 @property int userScore;
 @property int userScore2;
 @property int bankScore;
-@property NSDictionary *winningThrees;
+@property NSDictionary *winningNumbers;
 @property BOOL isPlayerOne;
 
 @property (weak, nonatomic) IBOutlet UILabel *userScoreLabel;
@@ -46,14 +46,48 @@
     self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
     self.isPlayerOne = YES;
 
-    self.winningThrees = @{@"1": @100,
+    self.winningNumbers = @{@"1": @100,
                            @"5": @50,
+                           @"11":@200,
+                           @"55":@100,
                            @"111" : @1000 ,
                            @"222" : @200 ,
                            @"333" : @300 ,
                            @"444" : @400 ,
                            @"555" : @500 ,
-                           @"666" : @600};
+                           @"666" : @600,
+                           @"1111" : @1100,
+                           @"5555" : @550,
+                           @"55555" : @600,
+                            @"11111" : @1200,
+                           @"111111" : @1000 ,
+                           @"222222" : @1000 ,
+                           @"333333" : @1000 ,
+                           @"444444" : @1000 ,
+                           @"555555" : @1000 ,
+                           @"666666" : @1000,
+                           @"123456" : @1000,
+                           @"112233" : @1000,
+                           @"112244" : @1000,
+                           @"112255" : @1000,
+                           @"112266" : @1000,
+                           @"113344" : @1000,
+                           @"113355" : @1000,
+                           @"113366" : @1000,
+                           @"114455" : @1000,
+                           @"114466" : @1000,
+                           @"115566" : @1000,
+                           @"223344" : @1000,
+                           @"223355" : @1000,
+                           @"223366" : @1000,
+                           @"224455" : @1000,
+                           @"224466" : @1000,
+                           @"225566" : @1000,
+                           @"334455" : @1000,
+                           @"334466" : @1000,
+                           @"335566" : @1000,
+                           @"123456" : @1000,
+                           };
 
 }
 
@@ -103,7 +137,8 @@
     NSMutableString *fours = [[NSMutableString alloc]init];
     NSMutableString *fives = [[NSMutableString alloc]init];
     NSMutableString *sixes = [[NSMutableString alloc]init];
-    NSArray *array = @[ones, twos, threes, fours, fives, sixes];
+    NSMutableString *all = [[NSMutableString alloc]init];
+    NSMutableArray *array = [@[ones, twos, threes, fours, fives, sixes] mutableCopy];
 
     for (DieLabel *label in labelsArray)
     {
@@ -148,14 +183,29 @@
             default:
                 break;
         }
+
+//        [all appendString:ones];
+//        [all appendString:twos];
+//        [all appendString:threes];
+//        [all appendString:fours];
+//        [all appendString:fives];
+//        [all appendString:sixes];
+//
+//        if (all.length == 6)
+//        {
+//            [array addObject:all];
+//        }
+
     }
 
     for (NSString *string in array)
     {
-        self.bankScore = self.bankScore + [[self.winningThrees valueForKey:string] intValue];
+        self.bankScore = self.bankScore + [[self.winningNumbers valueForKey:string] intValue];
+        NSLog(@"the key is %@", string );
     }
 
     self.bankScoreLabel.text = [NSString stringWithFormat:@"%d",self.bankScore];
+
 
 //    self.allDieForScore =[@[]mutableCopy];
 
@@ -221,6 +271,17 @@
         self.userScoreLabel2.backgroundColor = [UIColor whiteColor];
         self.userScoreLabel.backgroundColor = [UIColor greenColor];
     }
+}
+
+
+- (IBAction)onStartOverButtonPressed:(id)sender
+{
+    [self resetGame];
+    self.userScore = 0;
+    self.userScore2 = 0;
+    self.userScoreLabel.text = @"Score";
+    self.userScoreLabel2.text = @"Score2";
+
 }
 
 
