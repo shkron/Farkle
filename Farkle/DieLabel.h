@@ -21,7 +21,7 @@
 @property (nonatomic, weak) id <DieLabelDelegate> delegate;
 
 @property BOOL isSelected;
-
+@property NSInteger diceValue;
 
 - (void)roll;
 //- (void)isLabelTapped: (BOOL)isTapped;

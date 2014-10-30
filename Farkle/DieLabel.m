@@ -13,12 +13,10 @@
 
 - (void)roll
 {
-    if (self.isSelected == NO)
-    {
-        int randomNumber = arc4random_uniform(6)+1;
+    int randomNumber = arc4random_uniform(6)+1;
         //    DieLabel *label = [[DieLabel alloc] init];
-        self.text = [NSString stringWithFormat:@"%d", randomNumber];
-    }
+    self.text = [NSString stringWithFormat:@"%d", randomNumber];
+    self.diceValue = randomNumber;
 
     //this method is supposed to set the label's text
     
@@ -28,7 +26,10 @@
 {
     NSLog(@"Hey I got tapped!");
     [self.delegate selectDieLabel:self];
+
+    self.isSelected = !self.isSelected;
 }
+
 
 
 
