@@ -83,7 +83,7 @@
                                 </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BEg-JF-B7z">
-                                <rect key="frame" x="137" y="349" width="30" height="30"/>
+                                <rect key="frame" x="130" y="322" width="30" height="30"/>
                                 <state key="normal" title="Roll">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -92,16 +92,38 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJz-ZX-40Z">
-                                <rect key="frame" x="130" y="48" width="45" height="21"/>
+                                <rect key="frame" x="115" y="61" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ySC-H6-iPb">
+                                <rect key="frame" x="125" y="530" width="70" height="30"/>
+                                <state key="normal" title="Start Over">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bank Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubW-93-cIS">
+                                <rect key="frame" x="40" y="234" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcb-Pn-kpm">
+                                <rect key="frame" x="105" y="355" width="80" height="30"/>
+                                <state key="normal" title="Bank Score">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBankScoreButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="gyM-sV-8ti"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="userScore" destination="vJz-ZX-40Z" id="nbS-92-pUC"/>
+                        <outlet property="bankScoreLabel" destination="ubW-93-cIS" id="X37-ZK-Ahf"/>
+                        <outlet property="userScoreLabel" destination="vJz-ZX-40Z" id="gE0-BB-SJ6"/>
                         <outletCollection property="allDieLabels" destination="CNs-45-gdu" id="DT4-za-cZ7"/>
                         <outletCollection property="allDieLabels" destination="6GA-Kg-Who" id="C8O-kW-6qt"/>
                         <outletCollection property="allDieLabels" destination="bVW-BW-oGx" id="uoI-jf-VIj"/>

@@ -15,18 +15,20 @@
 
 @property NSMutableArray *allDieLabelsCopy;
 @property NSMutableArray *allDieForScore;
-@property NSInteger *finalScore;
-@property NSInteger *boardScore;
-@property NSArray *winningThrees;
+@property int finalScore;
+@property int boardScore;
+@property NSDictionary *winningThrees;
 
-@property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property (weak, nonatomic) IBOutlet UILabel *userScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bankScoreLabel;
 
 
 @end
 
 @implementation RootViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     for (DieLabel *label in self.allDieLabels)
@@ -34,9 +36,20 @@
         label.delegate = self; //setting the VC as the delegate of label
     }
     self.dice = [@[]mutableCopy];
+    self.allDieForScore = [@[]mutableCopy];
+
     [self resetGame];
 
-    self.winningThrees = @[@"111",@"222",@"333",@"444",@"555",@"666"];
+
+    self.winningThrees = @{@"1": @100,
+                           @"5": @50,
+                           @"111" : @1000 ,
+                           @"222" : @200 ,
+                           @"333" : @300 ,
+                           @"444" : @400 ,
+                           @"555" : @500 ,
+                           @"666" : @600};
+
 }
 
 -(void)selectDieLabel:(DieLabel *)label
@@ -44,40 +57,23 @@
     if (![label.text isEqualToString:@"*"])
     {
         [self.allDieForScore addObject:label];
+//        [self.dice addObject:label];
         label.backgroundColor = [UIColor redColor];
     }
+
 }
 
 - (IBAction)onRollButtonPressed:(UIButton *)sender
 {
-//    for (int i = 0; i < self.allDieLabels.count; i++ )
-    //calculations
-
 
     [self.dice addObjectsFromArray:self.allDieForScore];
-
     [self checkSelectedDice];
     [self rollAllDice];
+    [self checkForScore:self.allDieForScore];
 
+    self.allDieForScore =[@[]mutableCopy];
+    self.bankScoreLabel.text = @"";
 
-
-//    //if dice is empty, roll all of them
-//    if (self.allDieLabelsCopy.count == 6)
-//    {
-//        [self rollAllDice];
-//
-//    }
-//
-//    else if (self.allDieLabelsCopy.count == 0)
-//    {
-//        [self rollAllDice];
-//
-//    }
-//
-//    else
-//    {
-//        [self rollAllDice];
-//    }
 
 }
 
@@ -86,19 +82,21 @@
     for (DieLabel *label in self.dice)
     {
         [self.allDieLabelsCopy removeObject:label]; //remove chosen die from the copy array
-
     }
 
 }
 
-- (NSInteger*)checkForScore: (NSMutableArray *)labelsArray
+- (void)checkForScore: (NSMutableArray *)labelsArray
 {
-    NSString *ones = [[NSString alloc]init];
-    NSString *twos = [[NSString alloc]init];
-    NSString *threes = [[NSString alloc]init];
-    NSString *fours = [[NSString alloc]init];
-    NSString *fives = [[NSString alloc]init];
-    NSString *sixes = [[NSString alloc]init];
+    self.boardScore = 0;
+
+    NSMutableString *ones = [[NSMutableString alloc]init];
+    NSMutableString *twos = [[NSMutableString alloc]init];
+    NSMutableString *threes = [[NSMutableString alloc]init];
+    NSMutableString *fours = [[NSMutableString alloc]init];
+    NSMutableString *fives = [[NSMutableString alloc]init];
+    NSMutableString *sixes = [[NSMutableString alloc]init];
+    NSArray *array = @[ones, twos, threes, fours, fives, sixes];
 
     for (DieLabel *label in labelsArray)
     {
@@ -106,37 +104,37 @@
         {
             case 1:
             {
-                ones = [ones stringByAppendingString:label.text];
+                [ones appendString:label.text];
                 break;
             }
 
             case 2:
             {
-                twos = [twos stringByAppendingString:label.text];
+                [twos appendString:label.text];
                 break;
             }
 
             case 3:
             {
-                threes = [threes stringByAppendingString:label.text];
+                [threes appendString:label.text];
                 break;
             }
 
             case 4:
             {
-                fours = [fours stringByAppendingString:label.text];
+                [fours appendString:label.text];
                 break;
             }
 
             case 5:
             {
-                fives = [fives stringByAppendingString:label.text];
+                [fives appendString:label.text];
                 break;
             }
 
             case 6:
             {
-                sixes = [sixes stringByAppendingString:label.text];
+                [sixes appendString:label.text];
                 break;
             }
 
@@ -145,13 +143,15 @@
         }
     }
 
-
+    for (NSString *string in array)
+    {
+        self.boardScore = self.boardScore + [[self.winningThrees valueForKey:string] intValue];
     }
 
+    self.bankScoreLabel.text = [NSString stringWithFormat:@"%d",self.boardScore];
 
-}
+//    self.allDieForScore =[@[]mutableCopy];
 
-    return nil;
 }
 
 - (void)rollAllDice
@@ -170,6 +170,17 @@
         label.backgroundColor = [UIColor blueColor];
         self.allDieLabelsCopy = [NSMutableArray arrayWithArray:self.allDieLabels];
     }
+}
+
+- (IBAction)onBankScoreButtonPressed:(UIButton *)sender
+{
+    [self checkForScore:self.allDieForScore];
+
+    self.finalScore = self.finalScore + self.boardScore;
+    self.userScoreLabel.text = [NSString stringWithFormat:@"%d",self.finalScore];
+
+
+
 }
 
 
